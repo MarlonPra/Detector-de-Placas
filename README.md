@@ -8,6 +8,10 @@ Este proyecto es un sistema de detección y reconocimiento de placas de vehícul
 - Ana Victoria Diaz Marquinez
 - Camilo Andres Gomez Morales
 - Julian Andres Roldan Gaita
+- Kevin Santiago Garzon Mazabel
+- Brayan Pantoja
+- Jordy Vargas
+- Julian Hoyos
 
 ## Funcionalidades
 - Detección de placas en tiempo real usando una cámara web
