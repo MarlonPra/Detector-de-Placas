@@ -21,10 +21,16 @@ Este proyecto es un sistema de detección y reconocimiento de placas de vehícul
 - Eliminación automática de imágenes procesadas
 
 ## Requisitos
-- Python 3.11 o inferior
+- Python 3.12 o inferior (según las dependencias actuales)
 - Paquetes requeridos:
-  - inference-sdk
-  - opencv-python
+  - ultralytics==8.3.144
+  - opencv-python==4.11.0.86
+  - torch==2.7.0
+  - torchvision==0.22.0
+  - numpy==2.2.6
+  - pillow (opcional)
+  - matplotlib (opcional)
+  - pandas (opcional)
 
 ## Instalación
 1. Clonar el repositorio:
@@ -39,28 +45,27 @@ pip install -r requirements.txt
 ```
 
 ## Uso
-1. Ejecutar el script de detección:
+1. Ejecutar el script principal de detección:
 ```bash
-python detectar_placa_y_guardar.py
+python placa_detect.py
 ```
 
-2. El programa iniciará la cámara y comenzará a detectar placas. Presiona 'q' para salir.
+2. El programa iniciará la cámara y comenzará a detectar placas. Presiona 'q' o 'ESC' para salir.
 
-3. Una vez que se hayan detectado 10 placas, el sistema automáticamente:
-   - Recortará las placas detectadas
-   - Procesará el texto de las placas
-   - Guardará los resultados en `resultados_texto_placas.txt`
-   - Eliminará las imágenes procesadas
+3. El sistema detectará placas en tiempo real, recortará las regiones detectadas y procesará el texto de las placas. Los resultados se mostrarán en pantalla y se podrán almacenar según la lógica del script.
 
 ## Notas
-- El sistema utiliza modelos de Roboflow para la detección de placas y el reconocimiento de texto
+- El sistema utiliza modelos previamente entrenados (en formato .pt) para la detección y reconocimiento de placas
 - Se requiere una cámara web conectada al sistema
-- Los resultados se guardan en el directorio `placas_recortadas` y en el archivo `resultados_texto_placas.txt`
+- Los resultados pueden guardarse en archivos de texto o imágenes procesadas según la configuración del script
 
 ## Estructura del Proyecto
-- `detectar_placa_y_guardar.py`: Script principal para la detección de placas
-- `leer_texto_placa.py`: Script para el reconocimiento de texto de las placas
+- `placa_detect.py`: Script principal para la detección y reconocimiento de placas
+- `prueba_camara.py`: Script de prueba para la cámara web
+- `best.pt`, `detector_placa.pt`, `license_plate_detector.pt`: Modelos de IA utilizados
+- `plates.mp4`: Video de ejemplo para pruebas
 - `requirements.txt`: Lista de dependencias del proyecto
+- `leer_texto_placa.py`: Script para el reconocimiento de texto de las placas
 - `placas_recortadas/`: Directorio donde se guardan las placas recortadas
 - `resultados_texto_placas.txt`: Archivo donde se guardan los resultados del OCR
 

@@ -1,2 +1,10 @@
-inference-sdk
-opencv-python
+# Requisitos para ejecutar placa_detect.py
+ultralytics==8.3.144
+opencv-python==4.11.0.86
+torch==2.7.0
+torchvision==0.22.0
+numpy==2.2.6
+# (Opcionales pero útiles)
+pillow
+matplotlib
+pandas
